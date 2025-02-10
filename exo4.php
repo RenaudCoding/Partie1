@@ -9,7 +9,7 @@
 $phrase = "Engage le jeu que je le gagne";
 
 /*
-Phrase Comparative : $phraseTest
+Phrase Comparative : $phraseTest1
 */
 
 // Lettres de la phrase en minuscule //
@@ -19,15 +19,27 @@ $phraseLower = mb_strtolower($phrase);
 $phraseSpaceless = preg_replace("/\s+/","",$phraseLower); 
 
 // Inversion des lettres //
-$phraseTest = strrev($phraseSpaceless);
+$phraseTest1 = strrev($phraseSpaceless);
+
+/* L'ensemble sur une seule ligne : $phraseTest2
+*/
+$phraseTest2 = strrev(mb_strtolower(preg_replace("/\s+/","",$phrase)));
+
 
 /*
 Comparaison
 */
 
-if($phraseSpaceless == $phraseTest) {
+//  Avec phraseTest1
+if($phraseSpaceless == $phraseTest1) {
     echo "La phrase « $phrase » est un palindrome<br>";    
 } else {
     echo "La phrase « $phrase » n'est pas un palindrome<br>";
 }
 
+//  Avec phraseTest2
+if($phraseSpaceless == $phraseTest2) {
+    echo "La phrase « $phrase » est un palindrome<br>";    
+} else {
+    echo "La phrase « $phrase » n'est pas un palindrome<br>";
+}
